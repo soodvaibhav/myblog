@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    {% block title %}
+      <title>Sameera's Blog</title>
+    {% endblock %}
+    <link href="css/library/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/library/font-awesome.min.css">
+    <link href="css/stylesheet/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">Lifestyle</a></li>
+            <li><a href="#contact">Travel</a></li>
+            <li><a href="#contact">Fashion</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="about.html">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+            <li><a href="#"><i class="fa fa-reddit"></i></a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </nav>
+    {% block container %}{% endblock %}
+    <footer class="footer">
+      <div class="footer-socials">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-google-plus"></i></a>
+        <a href="#"><i class="fa fa-dribbble"></i></a>
+        <a href="#"><i class="fa fa-reddit"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <i class="fa fa-copyright"></i> Copyright 2016. All rights reserved.<br>
+      </div>
+    </footer>
+    <script src="js/library/jquery-1.11.1.min.js"></script>
+    <script src="js/library/bootstrap.min.js"></script>
+    <script src="js/library/jquery.bxslider.min.js"></script>
+    <script src="js/library/mooz.scripts.min.js"></script>
+  </body>
+</html>
