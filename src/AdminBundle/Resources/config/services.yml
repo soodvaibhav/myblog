@@ -1,4 +1,8 @@
 services:
-#    admin.example:
-#        class: AdminBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+  admin.dashboard:
+    class: AdminBundle\Controller\DashBoardController
+    arguments: ["@templating"]
+
+  create.post:
+    class: AdminBundle\Controller\CreatePostController
+    arguments: ["@templating"]

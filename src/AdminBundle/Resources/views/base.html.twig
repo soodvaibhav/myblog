@@ -11,7 +11,7 @@
     </head>
     <body class="skin-black">
         <header class="header">
-            <a href="{{ path('admin_homepage') }}" class="logo">
+            <a href="{{ path('admin_dashboard') }}" class="logo">
                 Admin
             </a>
             <nav class="navbar navbar-static-top" role="navigation">
@@ -36,13 +36,13 @@
                         </div>
                     </div>
                     <ul class="sidebar-menu">
-                        <li {{ route == 'admin_homepage' ? 'class="active"' }}>
-                            <a href="{{ path('admin_homepage') }}">
+                        <li {{ route == 'admin_dashboard' ? 'class="active"' }}>
+                            <a href="{{ path('admin_dashboard') }}">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
-                        <li {{ route == 'post_create' ? 'class="active"' }}>
-                            <a href="index.html">
+                        <li {{ route == 'create_post' ? 'class="active"' }}>
+                            <a href="{{ path('create_post') }}">
                                 <i class="fa fa-pencil-square-o"></i> <span>Create Post</span>
                             </a>
                         </li>

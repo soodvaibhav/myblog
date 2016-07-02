@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Post
  *
- * @ORM\Table(name="post")
+ * @ORM\Table(name="posts")
  * @ORM\Entity(repositoryClass="FrontendBundle\Repository\PostRepository")
  */
 class Post
@@ -62,6 +62,13 @@ class Post
      * @ORM\Column(name="image", type="string", length=400)
      */
     private $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="category", type="string", length=255)
+     */
+    private $category;
 
     /**
      * Get id

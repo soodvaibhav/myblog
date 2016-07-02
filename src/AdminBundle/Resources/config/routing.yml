@@ -1,3 +1,7 @@
-admin_homepage:
+admin_dashboard:
     path:     /
-    defaults: { _controller: AdminBundle:DashBoard:index }
+    defaults: { _controller: admin.dashboard:indexAction }
+
+create_post:
+  path: /create-post
+  defaults: { _controller: create.post:indexAction }
