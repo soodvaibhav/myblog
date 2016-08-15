@@ -1,0 +1,10 @@
+.postContent {
+  display: block;
+  width: 100%;
+  min-height: 200px;
+  padding: 6px 12px;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

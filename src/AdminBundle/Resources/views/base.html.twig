@@ -37,12 +37,12 @@
                     </div>
                     <ul class="sidebar-menu">
                         <li {{ route == 'admin_dashboard' ? 'class="active"' }}>
-                            <a href="{{ path('admin_dashboard') }}">
+                            <a href="#">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
                         <li {{ route == 'create_post' ? 'class="active"' }}>
-                            <a href="{{ path('create_post') }}">
+                            <a href="#new">
                                 <i class="fa fa-pencil-square-o"></i> <span>Create Post</span>
                             </a>
                         </li>
@@ -50,15 +50,13 @@
                 </section>
             </aside>
             <div class="right-side">
-                <section class="content">
+                <section id="adminContent" class="content">
                     {% block content %}
                         <p>Content goes here</p>
                     {% endblock %}
                 </section>
             </div>
         </div>
-        <script src="/js/library/jquery.min.js" type="text/javascript"></script>
-        <script src="/js/library/bootstrap.min.js" type="text/javascript"></script>
         <script src="/js/code/admin.js" type="text/javascript"></script>
     </body>
 </html>

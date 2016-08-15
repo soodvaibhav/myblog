@@ -3,6 +3,5 @@ services:
     class: AdminBundle\Controller\DashBoardController
     arguments: ["@templating"]
 
-  create.post:
-    class: AdminBundle\Controller\CreatePostController
-    arguments: ["@templating"]
+  file.upload:
+    class: AdminBundle\Controller\UploadFile

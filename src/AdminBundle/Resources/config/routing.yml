@@ -1,7 +1,8 @@
 admin_dashboard:
-    path:     /
-    defaults: { _controller: admin.dashboard:indexAction }
+  path:     /
+  defaults: { _controller: admin.dashboard:indexAction }
 
-create_post:
-  path: /create-post
-  defaults: { _controller: create.post:indexAction }
+file_upload:
+  path: /upload
+  defaults: { _controller: file.upload:indexAction }
+  methods: [POST]
