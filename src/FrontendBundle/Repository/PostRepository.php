@@ -10,20 +10,4 @@ namespace FrontendBundle\Repository;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getPosts($startRank, $endRank)
-    {
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT     p
-                 FROM       FrontendBundle:Post p
-                 WHERE      p.rank
-                 BETWEEN    :startRank AND :endRank + 1
-                 ORDER BY   p.rank ASC'
-            )
-            ->setParameters([
-                'startRank' => $startRank,
-                'endRank'   => $endRank,
-            ])
-            ->getResult();
-    }
 }

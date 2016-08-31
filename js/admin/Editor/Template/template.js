@@ -1,4 +1,6 @@
-var editorTemplate = `<div class="errorBox"></div>
+var _ = require('underscore');
+
+var editorTemplate = _.template(`<div class="errorBox"></div>
 <form>
   <div class="form-group">
     <input type="text" class="form-control postTitle" placeholder="Title of the post" value="<%= title %>">
@@ -7,13 +9,15 @@ var editorTemplate = `<div class="errorBox"></div>
     <div class="postContent"></div>
   </div>
   <button type="submit" class="btn btn-default postSubmit">Submit</button>
-</form>`;
+</form>`);
 
-var errorTemplate = `<% if (error) { %>
+var errorTemplate = _.template(`<% if (errors) { %>
   <div class="alert alert-warning">
-    <strong>Warning!</strong> <%= error %>
+    <% _.each(errors, function(error) { %>
+        <strong>Warning!</strong> <%= error %>
+    <% }) %>
   </div>
-<% } %>`;
+<% } %>`);
 
 module.exports = {
   editorTemplate,

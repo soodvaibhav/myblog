@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Post
  *
- * @ORM\Table(name="posts")
+ * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="FrontendBundle\Repository\PostRepository")
  */
 class Post
@@ -24,7 +24,7 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=400)
+     * @ORM\Column(name="title", type="text")
      */
     private $title;
 
@@ -38,37 +38,24 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=20)
+     * @ORM\Column(name="status", type="string", length=255)
      */
-    private $status;
+    private $status = 'draft';
 
     /**
      * @var string
      *
-     * @ORM\Column(name="post_name", type="string", length=400)
+     * @ORM\Column(name="name", type="text")
      */
-    private $post_name;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="rank", type="integer", unique=true)
-     */
-    private $rank;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=400)
+     * @ORM\Column(name="image", type="string", length=400, nullable=true)
      */
     private $image;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="category", type="string", length=255)
-     */
-    private $category;
 
     /**
      * Get id
@@ -153,51 +140,27 @@ class Post
     }
 
     /**
-     * Set post_name
+     * Set name
      *
-     * @param string $postName
+     * @param string $name
      *
      * @return Post
      */
-    public function setPostName($postName)
+    public function setName($name)
     {
-        $this->post_name = $postName;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get post_name
+     * Get name
      *
      * @return string
      */
-    public function getPostName()
+    public function getName()
     {
-        return $this->post_name;
-    }
-
-    /**
-     * Set rank
-     *
-     * @param integer $rank
-     *
-     * @return Post
-     */
-    public function setRank($rank)
-    {
-        $this->rank = $rank;
-
-        return $this;
-    }
-
-    /**
-     * Get rank
-     *
-     * @return int
-     */
-    public function getRank()
-    {
-        return $this->rank;
+        return $this->name;
     }
 
     /**
@@ -223,29 +186,4 @@ class Post
     {
         return $this->image;
     }
-
-    /**
-     * Set category
-     *
-     * @param string $category
-     *
-     * @return Post
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return string
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
 }
-

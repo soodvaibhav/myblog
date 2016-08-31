@@ -1,7 +1,11 @@
 services:
-  admin.dashboard:
-    class: AdminBundle\Controller\DashBoardController
-    arguments: ["@templating"]
+    admin.dashboard:
+        class: AdminBundle\Controller\DashBoardController
+        arguments: ["@templating"]
 
-  file.upload:
-    class: AdminBundle\Controller\UploadFile
+    file.upload:
+        class: AdminBundle\Controller\UploadFile
+
+    post.controller:
+        class: AdminBundle\Controller\PostController
+        arguments: ["@form.factory", "@request_stack", "@doctrine.orm.default_entity_manager"]

@@ -2,9 +2,7 @@
 
 namespace AdminBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-class DashBoardController extends Controller
+class DashBoardController
 {
 	private $templating;
 

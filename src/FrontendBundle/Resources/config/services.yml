@@ -1,4 +1,10 @@
 services:
-   home.page:
-       class: FrontendBundle\Controller\HomePageController
-       arguments: ["@doctrine.orm.default_entity_manager", "@templating"]
+    home.page:
+        class: FrontendBundle\Controller\HomePageController
+        arguments: ["@doctrine.orm.default_entity_manager", "@templating"]
+
+    post.listener:
+        class: FrontendBundle\EventListener\PostListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
