@@ -1,6 +1,6 @@
 var Backbone = require('backbone');
 
-var EditorModel = Backbone.Model.extend({
+module.exports = Backbone.Model.extend({
   urlRoot: '/admin/post',
 
   defaults: {
@@ -14,5 +14,3 @@ var EditorModel = Backbone.Model.extend({
     }
   }
 });
-
-module.exports = new EditorModel();

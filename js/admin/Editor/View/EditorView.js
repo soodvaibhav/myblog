@@ -9,9 +9,8 @@ require('medium-editor-insert-plugin/dist/css/medium-editor-insert-plugin')
 require('../../css/editor')
 
 module.exports = Backbone.View.extend({
-    el: '#adminContent',
-
     initialize: function() {
+        $('#adminContent').html(this.el);
         this.render();
         this.model.on('change', this.render, this);
     },

@@ -1,8 +1,8 @@
 module.exports = {
   entry: './admin/app.js',
   output: {
-    path: __dirname + '/build',
-    filename: 'bundle.js'
+    path: __dirname + '/../web/js/code/',
+    filename: 'admin.js'
   },
   module: {
       loaders: [

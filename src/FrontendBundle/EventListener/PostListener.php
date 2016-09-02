@@ -36,7 +36,7 @@ class PostListener
         }
 
         if ($args->hasChangedField('content')) {
-            $image = $this->getImage($content);
+            $image = $this->getImage($entity->getContent());
             if (strlen($image) > 0) {
                 $entity->setImage($image);
             }
