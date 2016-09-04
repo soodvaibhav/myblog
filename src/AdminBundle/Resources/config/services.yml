@@ -9,3 +9,7 @@ services:
     post.controller:
         class: AdminBundle\Controller\PostController
         arguments: ["@form.factory", "@request_stack", "@doctrine.orm.default_entity_manager"]
+
+    post.list.controller:
+        class: AdminBundle\Controller\PostListController
+        arguments: ["@doctrine.orm.default_entity_manager"]

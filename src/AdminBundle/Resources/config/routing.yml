@@ -16,3 +16,7 @@ put_post:
     path: /post/{id}
     defaults: { _controller: post.controller:putAction }
     methods: [PUT]
+
+get_post_list:
+    path: /post-list
+    defaults: { _controller: post.list.controller:getPostListAction }

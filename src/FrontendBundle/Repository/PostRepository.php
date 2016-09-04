@@ -10,4 +10,21 @@ namespace FrontendBundle\Repository;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getPostList($page)
+    {
+        if ($page > 0) {
+            $offset = ($page - 1) * 10;
+        } else {
+            $offset = 0;
+        }
+        return $this->getEntityManager()
+                    ->createQuery(
+                        'SELECT    p.id, p.title, p.status
+                         FROM      FrontendBundle:Post p
+                         ORDER BY  p.id DESC'
+                    )
+                    ->setFirstResult($offset)
+                    ->setMaxResults(11)
+                    ->getResult();
+    }
 }
