@@ -8,7 +8,15 @@ var editorTemplate = _.template(`<div class="errorBox"></div>
   <div class="form-group">
     <div class="postContent"></div>
   </div>
-  <button type="submit" class="btn btn-default postSubmit">Submit</button>
+  <button type="submit" class="btn btn-default postSave">Save</button>
+    <% if (status === 'publish') { %>
+        <button type="submit" class="btn btn-danger togglePostStatus">
+        Unpublish
+    <% } else { %>
+        <button type="submit" class="btn btn-success togglePostStatus">
+        Publish
+    <% } %>
+  </button>
 </form>`);
 
 var errorTemplate = _.template(`<% if (errors) { %>

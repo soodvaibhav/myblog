@@ -16,6 +16,8 @@ class PostForm extends AbstractType
             ->add('title', TextType::class, ['required' => true, 'error_bubbling' => true]);
         $builder
             ->add('content', TextareaType::class, ['required' => true, 'error_bubbling' => true]);
+        $builder
+            ->add('status', TextType::class, ['required' => true, 'error_bubbling' => true]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

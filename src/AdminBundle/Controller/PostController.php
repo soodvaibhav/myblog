@@ -47,6 +47,7 @@ class PostController
         if ($form->isValid()) {
             $post->setContent($attributes['content']);
             $post->setTitle($attributes['title']);
+            $post->setStatus($attributes['status']);
             $this->em->persist($post);
             $this->em->flush();
             return new JsonResponse(['id' => $post->getId()]);

@@ -16,7 +16,8 @@ module.exports = Backbone.View.extend({
     },
 
     events: {
-        'click .postSubmit': 'postSubmit'
+        'click .postSave': 'postSave',
+        'click .togglePostStatus': 'togglePostStatus'
     },
 
     render: function() {
@@ -45,7 +46,7 @@ module.exports = Backbone.View.extend({
         this.editor.setContent(this.model.get('content'));
     },
 
-    postSubmit: function(e) {
+    postSave: function(e, status) {
         e.preventDefault();
         var allContents = this.editor.serialize();
 
@@ -54,10 +55,11 @@ module.exports = Backbone.View.extend({
             content: allContents["element-0"].value
         }
 
-        this.model.set({
-          title: this.$('.postTitle').val(),
-          content: allContents["element-0"].value
-        });
+        if (status) {
+            attrs.status = status;
+        }
+
+        this.model.set(attrs);
 
         if (this.model.isValid()) {
             this.model.save(attrs, {
@@ -68,6 +70,11 @@ module.exports = Backbone.View.extend({
         } else {
             this.showError([this.model.validationError]);
         }
+    },
+
+    togglePostStatus: function(event) {
+        var status = this.model.get('status') === 'publish' ? 'draft' : 'publish';
+        this.postSave(event, status);
     },
 
     showError: function(errors) {

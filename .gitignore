@@ -7,4 +7,4 @@
 /web/bundles/
 /web/images/*
 /js/node_modules/*
-/js/build/*
+/web/js/code/*
