@@ -8,3 +8,4 @@
 /web/images/*
 /js/node_modules/*
 /web/js/code/*
+/composer.lock
