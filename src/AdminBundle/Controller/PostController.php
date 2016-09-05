@@ -56,6 +56,13 @@ class PostController
         }
     }
 
+    public function getAction($id)
+    {
+        $repository = $this->em->getRepository('FrontendBundle:Post');
+        $post = $repository->getPost($id);
+        return new JsonResponse($post[0]);
+    }
+
     private function getErrorMessages($errors)
     {
         $errorMessages = array();

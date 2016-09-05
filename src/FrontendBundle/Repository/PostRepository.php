@@ -27,4 +27,16 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
                     ->setMaxResults(11)
                     ->getResult();
     }
+
+    public function getPost($id)
+    {
+        return $this->getEntityManager()
+                    ->createQuery(
+                        'SELECT    p
+                         FROM      FrontendBundle:Post p
+                         WHERE     p.id = :id'
+                    )
+                    ->setParameter('id', $id)
+                    ->getArrayResult();
+    }
 }

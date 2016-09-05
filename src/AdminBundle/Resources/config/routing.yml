@@ -15,7 +15,16 @@ post_post:
 put_post:
     path: /post/{id}
     defaults: { _controller: post.controller:putAction }
+    requirements:
+        page: '\d+'
     methods: [PUT]
+
+get_post:
+    path: /post/{id}
+    defaults: { _controller: post.controller:getAction }
+    requirements:
+        page: '\d+'
+    methods: [GET]
 
 get_post_list:
     path: /post-list

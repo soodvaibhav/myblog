@@ -7,7 +7,8 @@ var PostList = require('./Dashboard/Collection/PostList');
 module.exports = Backbone.Router.extend({
     routes: {
         'new': 'showEditor',
-        '(:page)': 'adminHome'
+        '(:page)': 'adminHome',
+        'edit/:id': 'editPost'
     },
 
     adminHome: function(page) {
@@ -27,6 +28,12 @@ module.exports = Backbone.Router.extend({
     showEditor: function() {
         var editorModel = new EditorModel();
         this.loadView(new EditorView({ model: editorModel }));
+    },
+
+    editPost: function(id) {
+        var editorModel = new EditorModel({id: id});
+        this.loadView(new EditorView({ model: editorModel }));
+        editorModel.fetch();
     },
 
     loadView : function(view) {
