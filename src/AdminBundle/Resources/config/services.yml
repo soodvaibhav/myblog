@@ -3,8 +3,9 @@ services:
         class: AdminBundle\Controller\DashBoardController
         arguments: ["@templating"]
 
-    file.upload:
-        class: AdminBundle\Controller\UploadFile
+    file.upload.controller:
+        class: AdminBundle\Controller\FileUploadController
+        arguments: ["%img_domain%", "%img_path%"]
 
     post.controller:
         class: AdminBundle\Controller\PostController

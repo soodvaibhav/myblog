@@ -4,7 +4,7 @@ admin_dashboard:
 
 file_upload:
   path: /upload
-  defaults: { _controller: file.upload:indexAction }
+  defaults: { _controller: file.upload.controller:indexAction }
   methods: [POST]
 
 post_post:
