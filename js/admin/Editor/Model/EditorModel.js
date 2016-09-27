@@ -5,7 +5,8 @@ module.exports = Backbone.Model.extend({
 
   defaults: {
     title: '',
-    content: ''
+    content: '',
+    status: 'draft'
   },
 
   validate: function(attrs, options) {

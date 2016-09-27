@@ -14,3 +14,7 @@ services:
     post.list.controller:
         class: AdminBundle\Controller\PostListController
         arguments: ["@doctrine.orm.default_entity_manager"]
+
+    image.thumbnail.service:
+        class: AdminBundle\Services\ImageThumbnailService
+        arguments: ["%img_path%"]

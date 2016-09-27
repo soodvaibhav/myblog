@@ -7,6 +7,13 @@ use FrontendBundle\Entity\Post;
 
 class PostListener
 {
+    private $imageThumbnailService;
+
+    public function __construct($imageThumbnailService)
+    {
+        $this->imageThumbnailService = $imageThumbnailService;
+    }
+
     public function prePersist(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
@@ -21,6 +28,7 @@ class PostListener
         $image = $this->getImage($content);
         if (strlen($image) > 0) {
             $entity->setImage($image);
+            $this->imageThumbnailService->generateThmbnails($image);
         }
 
         $name = preg_replace('/[^A-Za-z0-9\-]/', '-', $title);
@@ -38,6 +46,9 @@ class PostListener
         if ($args->hasChangedField('content')) {
             $image = $this->getImage($entity->getContent());
             if (strlen($image) > 0) {
+                if ($entity->getImage() != $image) {
+                    $this->imageThumbnailService->generateThmbnails($image);
+                }
                 $entity->setImage($image);
             }
         }
@@ -50,7 +61,7 @@ class PostListener
 
     private function getImage($content)
     {
-        preg_match('/src="([^"]*)"/i', $content, $matches);
+        preg_match('/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i', $content, $matches);
         if (!empty($matches)) {
             return $matches[1];
         }

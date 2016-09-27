@@ -31,12 +31,12 @@ Class FileUploadController
 
     public function upload(UploadedFile $file)
     {
-        $path = date('Y') . '/' . date('m') . '/' . 'original' . '/';
-        $directory = $this->imgPath . $path;
+        $path =  date('Y') . '/' . date('m') . '/';
+        $directory = $this->imgPath . '/' . $path;
         if (!is_dir($directory)) {
             mkdir($directory, 0755, true);
         }
-        $fileName = md5(uniqid()) . '.' . $file->getClientOriginalExtension();
+        $fileName = 'original_' .  md5(uniqid()) . '.' . $file->getClientOriginalExtension();
         $file->move($directory, $fileName);
         return $path . $fileName;
     }
