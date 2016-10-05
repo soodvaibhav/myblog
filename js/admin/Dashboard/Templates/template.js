@@ -9,7 +9,7 @@ var postsTableTemplate = _.template(`<table class="table table-striped">
       <tr>
         <th>Title</th>
         <th>Status</th>
-        <th>Edit</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody></tbody>

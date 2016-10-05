@@ -15,12 +15,9 @@ class HomePageController
 
     public function indexAction($page)
     {
-        $endRank = $page * self::POST_COUNT;
-        $startRank = $endRank - self::POST_COUNT + 1;
-
         $posts = $this->em
             ->getRepository('FrontendBundle:Post')
-            ->getPosts($startRank, $endRank);
+            ->getPostList($page);
 
         if (count($posts) > self::POST_COUNT) {
             $nextPage = $page + 1;
@@ -29,6 +26,10 @@ class HomePageController
             $nextPage = False;
         }
         $previousPage = ($page > 1) ? $page - 1 : False;
+
+        foreach ($posts as $key => $post) {
+            $posts[$key]['content'] = substr(strip_tags($post['content']), 0, 300);
+        }
 
         return  $this->templating->renderResponse(
             'FrontendBundle:HomePage:index.html.twig',

@@ -19,13 +19,13 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
         }
         return $this->getEntityManager()
                     ->createQuery(
-                        'SELECT    p.id, p.title, p.status
+                        'SELECT    p
                          FROM      FrontendBundle:Post p
                          ORDER BY  p.id DESC'
                     )
                     ->setFirstResult($offset)
                     ->setMaxResults(11)
-                    ->getResult();
+                    ->getArrayResult();
     }
 
     public function getPost($id)
