@@ -56,6 +56,12 @@ class Post
      */
     private $image;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_time", type="datetime")
+     */
+    private $dateTime;
 
     /**
      * Get id
@@ -185,5 +191,29 @@ class Post
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set dateTime
+     *
+     * @param \DateTime $dateTime
+     *
+     * @return Post
+     */
+    public function setDateTime($dateTime)
+    {
+        $this->dateTime = $dateTime;
+
+        return $this;
+    }
+
+    /**
+     * Get dateTime
+     *
+     * @return \DateTime
+     */
+    public function getDateTime()
+    {
+        return $this->dateTime;
     }
 }

@@ -4,7 +4,7 @@ namespace FrontendBundle\Controller;
 
 class HomePageController
 {
-    const POST_COUNT = 3;
+    const POST_COUNT = 10;
     private $em, $templating;
 
     public function __construct($em, $templating)

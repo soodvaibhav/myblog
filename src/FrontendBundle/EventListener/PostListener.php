@@ -24,6 +24,7 @@ class PostListener
 
         $content = $entity->getContent();
         $title = $entity->getTitle();
+        $entity->setDateTime(date("Y-m-d H:i:s"));
 
         $image = $this->getImage($content);
         if (strlen($image) > 0) {
@@ -56,6 +57,10 @@ class PostListener
         if ($args->hasChangedField('title')) {
             $name = preg_replace('/[^A-Za-z0-9\-]/', '-', $entity->getTitle());
             $entity->setName($name);
+        }
+
+        if ($args->hasChangedField('status') && 'publish' === $entity->getStatus()) {
+            $entity->setDateTime(new \DateTime());
         }
     }
 
