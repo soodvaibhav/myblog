@@ -1,7 +1,7 @@
 services:
     home.page:
         class: FrontendBundle\Controller\HomePageController
-        arguments: ["@doctrine.orm.default_entity_manager", "@templating", "%img_domain%"]
+        arguments: ["@doctrine.orm.default_entity_manager", "@templating"]
 
     post.listener:
         class: FrontendBundle\EventListener\PostListener
@@ -9,3 +9,7 @@ services:
             - { name: doctrine.event_listener, event: prePersist }
             - { name: doctrine.event_listener, event: preUpdate }
         arguments: ["@image.thumbnail.service"]
+
+    post.page:
+        class: FrontendBundle\Controller\PostPageController
+        arguments: ["@doctrine.orm.default_entity_manager", "@templating"]

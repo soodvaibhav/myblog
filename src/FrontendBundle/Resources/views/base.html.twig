@@ -45,6 +45,9 @@
       <section>
         <div class="row">
           {% block container %}{% endblock %}
+          {% block sidebar %}
+            {% include 'FrontendBundle::sidebar.html.twig' %}
+          {% endblock %}
        </div>
       </section>
     </div>

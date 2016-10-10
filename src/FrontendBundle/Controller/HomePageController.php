@@ -7,11 +7,10 @@ class HomePageController
     const POST_COUNT = 10;
     private $em, $templating;
 
-    public function __construct($em, $templating, $imageUrl)
+    public function __construct($em, $templating)
     {
         $this->em = $em;
         $this->templating = $templating;
-        $this->imageUrl = $imageUrl;
     }
 
     public function indexAction($page)
@@ -38,7 +37,6 @@ class HomePageController
             'posts' => $posts,
             'nextPage' => $nextPage,
             'previousPage' => $previousPage,
-            'imageUrl' => $this->imageUrl,
         ]
     );
 }

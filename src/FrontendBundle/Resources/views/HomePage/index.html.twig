@@ -4,28 +4,30 @@
         {% for post in posts %}
           <article class="blog-post">
             <div class="blog-post-image">
-              <a href="post/{{ post.name }}"><img src="{{ post.image }}" alt="{{ post.title }}"></a>
+              <a href="{{ path('post_page', {name: post.name}) }}"><img src="{{ post.image|replace({'original': '750_500'}) }}" alt="{{ post.title }}"></a>
             </div>
             <div class="blog-post-body">
               <h2>
-                <a href="post/{{ post.name }}">{{ post.title }}</a>
+                <a href="{{ path('post_page', {name: post.name}) }}">{{ post.title }}</a>
               </h2>
               <div class="post-meta">
                 <span>by <a href="#">Sameera Sood</a></span>/<span><i class="fa fa-clock-o"></i>{{ post.dateTime|date("F j, Y", false) }}</span>
               </div>
               <p>{{ post.content|raw }}<span>....</span></p>
-              <div class="read-more"><a href="post/{{ post.name }}">Continue Reading</a></div>
+              <div class="read-more"><a href="{{ path('post_page', {name: post.name}) }}">Continue Reading</a></div>
             </div>
           </article>
         {% endfor %}
       </div>
-      {% include 'FrontendBundle::sidebar.html.twig' %}
-      <div class="col-md-8">
+{% endblock %}
+{% block sidebar %}
+    {{ parent() }}
+    <div class="col-md-8">
         {% if nextPage %}
-          <a class="next-page" href="{{ path('pagination', { page: nextPage }) }}">Next &#187;</a>
+        <a class="next-page" href="{{ path('pagination', { page: nextPage }) }}">Next &#187;</a>
         {% endif %}
         {% if previousPage %}
-          <a class="previous-page" href="{{ path('pagination', { page: previousPage }) }}">&#171; Previous</a>
+        <a class="previous-page" href="{{ path('pagination', { page: previousPage }) }}">&#171; Previous</a>
         {% endif %}
-      </div>
+    </div>
 {% endblock %}
