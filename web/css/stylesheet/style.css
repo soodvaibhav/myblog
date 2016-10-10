@@ -33,7 +33,7 @@ img {
   height: auto;
 }
 a {
-    color: #4A4A4A; 
+    color: #4A4A4A;
 }
 a:hover, a:focus, a:active, a.active {
   color: #404040;
@@ -240,7 +240,7 @@ header {
   font-family: "Raleway", Sans-serif;
 }
 .sidebar-widget {
-  margin-bottom: 40px;  
+  margin-bottom: 40px;
 }
 .sidebar-widget li {
   font-size: 17px;
@@ -401,4 +401,16 @@ footer .footer-bottom {
 .next-page:hover, .previous-page:hover {
   background-color: #e6e6e6;
 }
-
+.navbar-logo {
+    font-family: "Custom Font", serif;
+    color: white;
+    font-size: 3em;
+}
+@font-face {
+    font-family: "Custom Font";
+    src: url(/css/fonts/custom.ttf) format("truetype");
+}
+.homepage-header {
+    font-family: "Custom Font", serif;
+    font-size: 5em;
+}

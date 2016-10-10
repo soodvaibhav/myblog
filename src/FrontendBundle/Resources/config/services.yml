@@ -1,7 +1,7 @@
 services:
     home.page:
         class: FrontendBundle\Controller\HomePageController
-        arguments: ["@doctrine.orm.default_entity_manager", "@templating"]
+        arguments: ["@doctrine.orm.default_entity_manager", "@templating", "%img_domain%"]
 
     post.listener:
         class: FrontendBundle\EventListener\PostListener

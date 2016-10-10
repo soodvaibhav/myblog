@@ -7,17 +7,18 @@ class HomePageController
     const POST_COUNT = 10;
     private $em, $templating;
 
-    public function __construct($em, $templating)
+    public function __construct($em, $templating, $imageUrl)
     {
         $this->em = $em;
         $this->templating = $templating;
+        $this->imageUrl = $imageUrl;
     }
 
     public function indexAction($page)
     {
         $posts = $this->em
-            ->getRepository('FrontendBundle:Post')
-            ->getPostList($page);
+        ->getRepository('FrontendBundle:Post')
+        ->getPostList($page);
 
         if (count($posts) > self::POST_COUNT) {
             $nextPage = $page + 1;
@@ -32,12 +33,13 @@ class HomePageController
         }
 
         return  $this->templating->renderResponse(
-            'FrontendBundle:HomePage:index.html.twig',
-            [
-                'posts' => $posts,
-                'nextPage' => $nextPage,
-                'previousPage' => $previousPage,
-            ]
-        );
-    }
+        'FrontendBundle:HomePage:index.html.twig',
+        [
+            'posts' => $posts,
+            'nextPage' => $nextPage,
+            'previousPage' => $previousPage,
+            'imageUrl' => $this->imageUrl,
+        ]
+    );
+}
 }

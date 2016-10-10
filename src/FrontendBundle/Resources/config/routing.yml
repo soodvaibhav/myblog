@@ -1,3 +1,9 @@
 homepage:
     path:     /
     defaults: { _controller: home.page:indexAction , page: 1}
+
+pagination:
+    path: /page/{page}
+    defaults: { _controller: home.page:indexAction }
+    requirements:
+        page:  \d+

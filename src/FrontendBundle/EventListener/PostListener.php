@@ -24,7 +24,7 @@ class PostListener
 
         $content = $entity->getContent();
         $title = $entity->getTitle();
-        $entity->setDateTime(date("Y-m-d H:i:s"));
+        $entity->setDateTime(new \DateTime());
 
         $image = $this->getImage($content);
         if (strlen($image) > 0) {
