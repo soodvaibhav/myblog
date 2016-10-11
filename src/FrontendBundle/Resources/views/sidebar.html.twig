@@ -1,13 +1,15 @@
 <div class="col-md-4 sidebar-gutter">
   <aside>
     <div class="sidebar-widget">
-      <h3 class="sidebar-title">About Me</h3>
-      <div class="widget-container widget-about">
-        <a href="post.html"><img src="{{ image_domain }}design/author.jpg" alt="Sameera Sood"></a>
-        <h4>Sameera Sood</h4>
-        <div class="author-title">Writer</div>
-        <p>'Mom Says That' was created on a lazy winter evening.The blog is about bits and pieces that make me.</p>
-      </div>
+      <a href="{{ path('author_page') }}">
+        <h3 class="sidebar-title">About Me</h3>
+        <div class="widget-container widget-about">
+          <img src="{{ image_domain }}design/author.jpg" alt="Sameera Sood">
+          <h4>Sameera Sood</h4>
+          <div class="author-title">Writer</div>
+          <p>'Mom Says That' was created on a lazy winter evening.The blog is about bits and pieces that make me.</p>
+        </div>
+     </a>
     </div>
     <div class="sidebar-widget">
       <h3 class="sidebar-title">Featured Posts</h3>

@@ -11,3 +11,9 @@ pagination:
 post_page:
     path: post/{name}
     defaults: { _controller: post.page:indexAction }
+
+author_page:
+    path: author
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    FrontendBundle:AuthorPage:index.html.twig
