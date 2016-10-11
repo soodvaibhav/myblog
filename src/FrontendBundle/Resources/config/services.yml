@@ -13,3 +13,7 @@ services:
     post.page:
         class: FrontendBundle\Controller\PostPageController
         arguments: ["@doctrine.orm.default_entity_manager", "@templating"]
+
+    top.posts:
+        class: FrontendBundle\Controller\TopPostsController
+        arguments: ["@doctrine.orm.default_entity_manager", "@templating"]

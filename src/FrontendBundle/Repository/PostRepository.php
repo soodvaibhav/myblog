@@ -39,4 +39,16 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
                     ->setParameter('id', $id)
                     ->getArrayResult();
     }
+
+    public function getTopPosts()
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT    p
+                 FROM      FrontendBundle:Post p
+                 ORDER BY  p.id'
+            )
+            ->setMaxResults(5)
+            ->getArrayResult();
+    }
 }

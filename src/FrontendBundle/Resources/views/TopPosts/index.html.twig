@@ -1,0 +1,22 @@
+{% if posts|length > 0 %}
+<div class="sidebar-widget">
+  <h3 class="sidebar-title">Featured Posts</h3>
+  <div class="widget-container">
+    {% for post in posts %}
+      <article class="widget-post">
+        <div class="post-image">
+          <a href="{{ path('post_page', {name: post.name}) }}">
+            <img src="{{ post.image|replace({'original': '90_60'}) }}">
+          </a>
+        </div>
+        <div class="post-body">
+          <h2><a href="{{ path('post_page', {name: post.name}) }}">{{ post.title }}</a></h2>
+          <div class="post-meta">
+            <span><i class="fa fa-clock-o"></i> {{ post.dateTime|date("j F Y", false) }}</span>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
